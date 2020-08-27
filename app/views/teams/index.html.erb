@@ -1,0 +1,16 @@
+<h1>Teams#index</h1>
+<% team_index %>
+<% @teams.each do |team| %>
+  <p><%= team.id %></p>
+  <p><%= team.name %></p>
+<% end %>
+<%= form_with(model: @team, local: true) do |f| %>
+  <%= f.label "number:" %>
+  <%= f.text_field :id %>
+  
+  <%= f.label "team_name:" %>
+  <%= f.text_field :name %>
+  
+  <%= f.submit '登録', class: 'btn btn-primary btn-block' %>
+  
+<% end %>

@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   }
   
   root to: 'toppages#index'
+  resources :teams, only: [:index,:create]
+  
 end
