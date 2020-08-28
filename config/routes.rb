@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   }
   
   root to: 'toppages#index'
+  resources :users, only: [:show]
   resources :teams, only: [:index,:create,:destroy]
-  
+  resources :posts, except: [:index]
+
 end
