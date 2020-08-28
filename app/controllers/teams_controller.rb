@@ -1,4 +1,6 @@
 class TeamsController < ApplicationController
+  before_action :admin_user?, only: [:index, :create, :destroy]
+
   def index
     @team = Team.new
   end
@@ -13,8 +15,25 @@ class TeamsController < ApplicationController
       render :index
     end
   end
-
+  
+  def destroy
+    @team = Team.find(params[:id])
+    unless @team
+      render :index
+    end
+    @team.destroy
+    flash[:success] = 'チームを削除しました。'
+    redirect_back(fallback_location: teams_path)
+  end
+  
+  private
   def team_params
     params.require(:team).permit(:id, :name)
+  end
+  
+  def admin_user?
+    unless current_user.admin
+      redirect_to root_url
+    end
   end
 end

@@ -7,7 +7,11 @@
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav">
+        
         <% if user_signed_in? %>
+          <% if current_user.admin %>
+          <li class="nav-item"><%= link_to 'Team_index', teams_path, class: "nav-link" %></li>
+          <% end %>
           <li class="nav-item"><p class="nav-link" ><%= current_user.name %></p></li>
           <li class="nav-item"><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "nav-link" %></li>
         <% else %>

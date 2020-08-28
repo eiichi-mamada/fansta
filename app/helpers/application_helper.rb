@@ -4,4 +4,5 @@ module ApplicationHelper
     @teams = Team.all
   end
   
+  
 end

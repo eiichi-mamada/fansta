@@ -2,6 +2,7 @@
 <% team_index %>
 <% @teams.each do |team| %>
   <p><%= team.id %></p>
+  <p><%= link_to "Delete", team, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm float-sm-left' %></p>
   <p><%= team.name %></p>
 <% end %>
 <%= form_with(model: @team, local: true) do |f| %>
