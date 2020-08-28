@@ -1,1 +1,16 @@
 <h1>Post new view</h1>
+
+<div class="row">
+  <aside class="col-sm-4">
+    <%= form_with(model: @post, local: true) do |f| %>
+      <div class="form-group">
+        <%= f.label"number:" %>
+        <%= f.select:team_id , options_from_collection_for_select(Team.all, :id, :name) %>
+
+        <%= f.label "コメント:" %>
+        <%= f.text_area :coment, class: 'form-control', rows: 5 %>
+      </div>
+      <%= f.submit '投稿', class: 'btn btn-primary btn-block' %>
+    <% end %>
+  </aside>
+</div>
