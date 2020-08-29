@@ -28,7 +28,7 @@ class TeamsController < ApplicationController
   
   private
   def team_params
-    params.require(:team).permit(:id, :name)
+    params.require(:team).permit(:id, :name, :icon)
   end
   
   def admin_user?

@@ -1,5 +1,10 @@
 <% team_index %>
 <% @teams.each do |team| %>
   <p><%= team.id %></p>
+  <% if team.icon? %>
+    <%= image_tag team.icon.url, :size => '50x50' %>
+  <% else %>
+    <%= image_tag "/assets/no_image.png", :size => '50x50' %>
+  <% end %>
   <p><%= team.name %></p>
 <% end %>

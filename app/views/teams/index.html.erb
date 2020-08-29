@@ -2,10 +2,17 @@
 <% team_index %>
 <% @teams.each do |team| %>
   <p><%= team.id %></p>
-  <p><%= link_to "Delete", team, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm float-sm-left' %></p>
+  <% if team.icon? %>
+    <%= image_tag team.icon.url, :size => '100x100' %>
+  <% else %>
+    <%= image_tag "/assets/no_image.png", :size => '100x100' %>
+  <% end %>
   <p><%= team.name %></p>
+  <p><%= link_to "Delete", team, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm float-sm-left' %></br></p>
 <% end %>
 <%= form_with(model: @team, local: true) do |f| %>
+  <%= f.file_field :icon, accept: 'image/jpeg,image/gif,image/png' %>
+
   <%= f.label "number:" %>
   <%= f.text_field :id %>
   

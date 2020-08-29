@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_08_28_062834) do
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "image"
+    t.string "image"
     t.text "coment"
     t.bigint "user_id"
     t.bigint "team_id"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2020_08_28_062834) do
 
   create_table "teams", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.text "icon"
+    t.string "icon"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2020_08_28_062834) do
     t.string "name", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.text "icon"
+    t.string "icon"
     t.boolean "admin", default: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
