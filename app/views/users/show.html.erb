@@ -7,6 +7,10 @@
   <% end %>
   <p><%= @user.name %></p>
   
+  <p><%= link_to "編集", edit_user_registration_path, class: 'btn btn-warning btn-sm float-sm-left' %></br></p>
+  <p><%= link_to "削除", user_registration_path, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm float-sm-left' %></br></p>
+
+  
   <% @user.posts.each do |post| %>
     <% if post.present? %>
       <%= post.coment %>

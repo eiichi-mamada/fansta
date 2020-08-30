@@ -11,15 +11,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    @user = User.new(sign_up_params)
-    unless @user.valid?
-      render :new and return
-    end
-    @user.save
+    super
     sign_in @user
-    redirect_to user_path(current_user.id)
-    flash[:notice] = "ログインに成功しました" #　 <-任意で
-    # after_sign_up_path_for(resource)
+    flash[:notice] = "ログインに成功しました"
+
   end
 
   # GET /resource/edit
@@ -56,6 +51,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
     devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
+  end
+  
+  #アカウント登録後のリダイレクト先
+  def after_sign_up_path_for(resource)
+    user_path(resource)
+  end
+  
+  #アカウント編集後のリダイレクト先
+  def after_update_path_for(resource)
+    user_path(resource)
   end
 
   # The path used after sign up.
