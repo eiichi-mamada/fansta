@@ -12,7 +12,7 @@ class PostsController < ApplicationController
     
     if  @post.save
       flash[:success] = '投稿しました。'
-      redirect_to root_url
+      redirect_to current_user
     else
       flash.now[:danger] = '投稿に失敗しました。'
       render 'toppages/index'
