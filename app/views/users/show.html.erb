@@ -15,4 +15,5 @@
     <% if post.present? %>
       <%= post.coment %>
     <% end %>
+    <%= link_to "詳細", post_path(post.id) %>
   <% end %>

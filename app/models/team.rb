@@ -2,6 +2,6 @@ class Team < ApplicationRecord
   
   validates :id, presence: true
   validates :name, presence: true, length: { maximum: 50 }
-  has_many :posts
+  has_many :posts, dependent: :destroy
   mount_uploader :icon, ImageUploader
 end

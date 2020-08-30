@@ -6,7 +6,9 @@
       <div class="form-group">
         <%= f.label"number:" %>
         <%= f.select:team_id , options_from_collection_for_select(Team.all, :id, :name) %>
-
+        
+        <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png' %>
+        
         <%= f.label "コメント:" %>
         <%= f.text_area :coment, class: 'form-control', rows: 5 %>
       </div>
