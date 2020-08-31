@@ -1,8 +1,21 @@
-User.create!(name:  "管理者",
-             email: "admin@a.com",
-             password:  "admin1234",
-             password_confirmation: "admin1234",
-             admin: true)
+User.create!(
+  [
+    {
+      name:  "管理者",
+      email: "admin@a.com",
+      password:  "admin1234",
+      password_confirmation: "admin1234",
+      admin: true
+    },
+    {
+      name:  "通常のユーザー",
+      email: "a@a.com",
+      password:  "aaaaaa",
+      password_confirmation: "aaaaaa",
+      admin: false
+    }
+  ]
+            )
 
 Team.create!(
   [
