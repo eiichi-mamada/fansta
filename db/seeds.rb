@@ -12,8 +12,7 @@ Team.create!(
     },
     {
       id: 8,
-      name:"ARTA NSX-GT",
-      icon:"ARTA NSX-GT.jpeg"
+      name:"ARTA NSX-GT"
     },
     {
       id: 12,
@@ -37,8 +36,7 @@ Team.create!(
     },
     {
       id: 23,
-      name:"MOTUL AUTHECH GT-R",
-      icon:"MOTUL AUTHECH GT-R.jpeg"
+      name:"MOTUL AUTHECH GT-R"
     },
     {
       id: 24,
@@ -58,8 +56,7 @@ Team.create!(
     },
     {
       id: 39,
-      name:"DENSO KOBELCO SARD GR Supra",
-      icom:"DENSO KOBELCO SARD GR Supra.jpeg"
+      name:"DENSO KOBELCO SARD GR Supra"
     },
     {
       id: 64,
