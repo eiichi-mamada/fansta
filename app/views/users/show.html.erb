@@ -3,7 +3,7 @@
   <% if @user.icon? %>
     <%= image_tag @user.icon.url, :size => '200x200' %>
   <% else %>
-    <%= image_tag "/assets/no_image.png", :size => '200x200' %>
+    <%= image_tag asset_path("no_image.png"), :size => '200x200' %>
   <% end %>
   <p><%= @user.name %></p>
   <% if user_signed_in? and @user == current_user %>
