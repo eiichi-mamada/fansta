@@ -26,6 +26,10 @@ class TeamsController < ApplicationController
     redirect_back(fallback_location: teams_path)
   end
   
+  def show
+    @team = Team.find(params[:id])
+  end
+  
   private
   def team_params
     params.require(:team).permit(:id, :name, :icon)

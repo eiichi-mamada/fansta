@@ -1,0 +1,9 @@
+<h1><%= @team.name %> posts view</h1>
+  <% @team.posts.each do |post|%>
+    <% if post.image.present? %>
+      <%= image_tag post.image.url, :size => '100x100' %>
+    <% else %>
+      <%= image_tag asset_path("no_image.png"), :size => '100x100' %>
+    <% end %>
+      <br><%= link_to "詳細", post_path(post.id) %>
+  <% end %>
