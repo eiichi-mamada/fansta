@@ -6,10 +6,12 @@
     <%= image_tag "/assets/no_image.png", :size => '200x200' %>
   <% end %>
   <p><%= @user.name %></p>
-  
-  <p><%= link_to "編集", edit_user_registration_path, class: 'btn btn-warning btn-sm float-sm-left' %></br></p>
-  <p><%= link_to "削除", user_registration_path, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm float-sm-left' %></br></p>
-
+  <% if user_signed_in? and @user == current_user %>
+    <% unless @user.admin %>
+      <p><%= link_to "編集", edit_user_registration_path, class: 'btn btn-warning btn-sm float-sm-left' %></br></p>
+      <p><%= link_to "削除", user_registration_path, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm float-sm-left' %></br></p>
+    <% end %>
+  <% end %>
   
   <% @user.posts.each do |post| %>
     <% if post.present? %>
