@@ -1,15 +1,14 @@
 <% team_index %>
 <% @teams.each do |team| %>
-  <div>
-  <p><%= team.id %></p>
-  <% if team.icon? %>
-    <%= image_tag team.icon.url, :size => '50x50' %>
-  <% else %>
-    <%= image_tag asset_path("no_image.png"), :size => '50x50' %>
-  <% end %>
-  <br>
-  <%= link_to team.name ,team_path(team.id) %>
-
+  <div class="media position-relative bg-secondary m-1">
+    <% if team.icon? %>
+      <%= image_tag team.icon.url, :size => '50x50', class:"mr-3", alt: team.icon.url %>
+    <% else %>
+      <%= image_tag asset_path("no_image.png"), :size => '50x50', class:"mr-3", alt: "no_image.png" %>
+    <% end %>
+    <div class="media-body">
+      <%= link_to team.name ,team_path(team.id), class:"stretched-link text-white"%>
+    </div>
+    <p class="position-absolute text-white"># <%= team.id %></p>
   </div>
-  
 <% end %>
