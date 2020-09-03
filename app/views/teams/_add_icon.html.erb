@@ -1,0 +1,4 @@
+<%= form_with(model: Team.find(team.id), local: true) do |f| %>
+  <%= f.file_field :icon, accept: 'image/jpeg,image/gif,image/png'  %>
+  <%= f.submit 'アイコン編集', class: 'btn btn-info btn-sm' %>
+<% end %>

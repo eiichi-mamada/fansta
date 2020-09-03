@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController
-  before_action :admin_user?, only: [:index, :create, :destroy]
-
+  before_action :admin_user?, only: [:index, :create, :destroy, :update]
+  before_action :set_team, only:[:show, :destroy, :update]
   def index
     @team = Team.new
   end
@@ -17,7 +17,6 @@ class TeamsController < ApplicationController
   end
   
   def destroy
-    @team = Team.find(params[:id])
     unless @team
       render :index
     end
@@ -27,12 +26,28 @@ class TeamsController < ApplicationController
   end
   
   def show
-    @team = Team.find(params[:id])
   end
+  
+  def update
+    # @team = Team.new(team_params)
+    # binding.pry
+    if @team.update(team_params)
+      flash[:success] = 'アイコンを登録しました。'
+      redirect_to '/teams'
+    else
+      flash.now[:danger] = 'アイコンの登録に失敗しました。'
+      render :index
+    end
+  end
+  
   
   private
   def team_params
     params.require(:team).permit(:id, :name, :icon)
+  end
+  
+  def set_team
+    @team = Team.find(params[:id])
   end
   
   def admin_user?

@@ -1,24 +1,30 @@
 <h1>Teams#index</h1>
 <% team_index %>
 <% @teams.each do |team| %>
-  <p><%= team.id %></p>
-  <% if team.icon? %>
-    <%= image_tag team.icon.url, :size => '100x100' %>
-  <% else %>
-    <%= image_tag asset_path("no_image.png"), :size => '100x100' %>
-  <% end %>
-  <p><%= team.name %></p>
-  <p><%= link_to "Delete", team, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm float-sm-left' %></br></p>
+  <div class="media bg-secondary m-4">
+    <% if team.icon? %>
+      <%= image_tag team.icon.url, :size => '100x100', class:"mr-3", alt: team.icon.url %>
+    <% else %>
+      <%= image_tag asset_path("no_image.png"), :size => '100x100', class:"mr-3", alt: "no_image.png" %>
+    <% end %>
+    <div class="media-body">
+      <%= link_to team.name ,team_path(team.id), class:"text-white"%>
+    </div>
+    <p class="position-absolute text-white"># <%= team.id %></p>
+    <%= render "teams/add_icon", team: team %>
+    <%= link_to "Delete", team, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm float-sm-left' %></br>
+  </div>
 <% end %>
 <%= form_with(model: @team, local: true) do |f| %>
-  <%= f.file_field :icon, accept: 'image/jpeg,image/gif,image/png' %>
 
   <%= f.label "number:" %>
   <%= f.text_field :id %>
-  
+  <br />
   <%= f.label "team_name:" %>
   <%= f.text_field :name %>
-  
-  <%= f.submit '登録', class: 'btn btn-primary btn-block' %>
+  <br />
+  <%= f.file_field :icon, accept: 'image/jpeg,image/gif,image/png' %>
+  <br />
+  <%= f.submit '登録', class: 'btn btn-primary btn-block m-5' %>
   
 <% end %>
