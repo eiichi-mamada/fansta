@@ -1,11 +1,6 @@
 <h1>Post show view</h1>
+  <%= image_tag display_image(@post.image.url), :size => '200x200' %>
   <%= @post.team.name %>
-  <% if @post.image.present? %>
-    <%= image_tag @post.image.url, :size => '100x100' %>
-  <% else %>
-    <%= image_tag asset_path("no_image.png"), :size => '100x100' %>
-  <% end %>
-  
   <%= @post.coment %>
   <% if user_signed_in? and @post.user == current_user %>
     <%= link_to '編集', edit_post_path %>

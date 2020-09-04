@@ -1,9 +1,6 @@
 <h1><%= @team.name %> posts view</h1>
+<div class="row row-cols-1 row-cols-md-3">
   <% @team.posts.each do |post|%>
-    <% if post.image.present? %>
-      <%= image_tag post.image.url, :size => '100x100' %>
-    <% else %>
-      <%= image_tag asset_path("no_image.png"), :size => '100x100' %>
-    <% end %>
-      <br><%= link_to "詳細", post_path(post.id) %>
+    <%= render "posts/post_card", post: post %>
   <% end %>
+</div>

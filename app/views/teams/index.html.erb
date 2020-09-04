@@ -1,4 +1,4 @@
-<h1>Teams#index</h1>
+<h1 class="text-center">チーム一覧　編集</h1>
 <% team_index %>
 <% @teams.each do |team| %>
   <div class="media bg-secondary m-4">
@@ -16,15 +16,18 @@
   </div>
 <% end %>
 <%= form_with(model: @team, local: true) do |f| %>
-
-  <%= f.label "number:" %>
-  <%= f.text_field :id %>
-  <br />
-  <%= f.label "team_name:" %>
-  <%= f.text_field :name %>
-  <br />
-  <%= f.file_field :icon, accept: 'image/jpeg,image/gif,image/png' %>
-  <br />
-  <%= f.submit '登録', class: 'btn btn-primary btn-block m-5' %>
-  
+  <div class="form-inline text-center bg-light">
+    <div class="form_group mb-2">
+      <%= f.label "number:" %>
+      <%= f.text_field :id, class: "form-control" %>
+    </div>
+    <div class="form_group mx-sm-3 mb-2">
+      <%= f.label "team_name:" %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="form_group mx-sm-3 mb-2">
+      <%= f.file_field :icon, accept: 'image/jpeg,image/gif,image/png', class: "form-control-file" %>
+    </div>
+    <%= f.submit '登録', class: 'btn btn-primary mb-2' %>
+  </div>
 <% end %>
