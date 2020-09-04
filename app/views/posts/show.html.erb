@@ -1,8 +1,12 @@
 <h1>Post show view</h1>
-  <%= image_tag display_image(@post.image.url), :size => '200x200' %>
-  <%= @post.team.name %>
-  <%= @post.coment %>
-  <% if user_signed_in? and @post.user == current_user %>
-    <%= link_to '編集', edit_post_path %>
-    <%= link_to '削除', post_path, method: :delete %>
-  <% end %>
+  <div class="card mb-3", style="width: 18rem;">
+    <%= image_tag display_image(@post.image.url), :size => '200x200', class:"card-img-top" %>
+    <div class="card-body">
+      <%= @post.team.name %>
+      <%= @post.coment %>
+      <% if user_signed_in? and @post.user == current_user %>
+        <%= link_to '編集', edit_post_path, class: 'btn btn-warning btn-sm' %>
+        <%= link_to '削除', post_path, method: :delete, class: 'btn btn-danger btn-sm' %>
+      <% end %>
+    </div>
+  </div>

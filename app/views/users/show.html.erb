@@ -1,16 +1,32 @@
-<h1><%= @user.name%> の詳細ページ</h1>
-  <%= image_tag display_image(@user.icon.url), :size => '200x200' %>
-  <p><%= @user.name %></p>
-  <% if user_signed_in? and @user == current_user %>
-    <% unless @user.admin %>
-      <p><%= link_to "編集", edit_user_registration_path, class: 'btn btn-warning btn-sm float-sm-left' %></br></p>
-      <p><%= link_to "削除", user_registration_path, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm float-sm-left' %></br></p>
-    <% end %>
+<h1 class="text-center"><%= @user.name %> の詳細ページ</h1>
+<div class="row">
+  <aside class="col-sm-4">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title"><%= @user.name %></h3>
+      </div>
+      <div class="card-body">
+        <%= image_tag display_image(@user.icon.url), class:"rounded img-fluid" %>
+        <% if user_signed_in? and @user == current_user %>
+          <% unless @user.admin %>
+            <p><%= link_to "編集", edit_user_registration_path, class: 'btn btn-warning btn-sm float-sm-left m-3' %></p>
+            <p><%= link_to "削除", user_registration_path, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm float-sm-left' %></p>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </aside>
+  <div class="col-sm-8">
+    <ul class="nav nav-tabs nav-justified mb-3">
+      <li class="nav-item">favorite</li>
+      <li class="nav-item">follow_user</li>
+      <li class="nav-item">fanteam</li>
+    </ul>
+  </div>
+</div>
+<br /
+<div class="row row-cols-1 row-cols-md-3">
+  <% @user.posts.each do |post|%>
+    <%= render "posts/post_card", post: post %>
   <% end %>
-  
-  <% @user.posts.each do |post| %>
-    <% if post.present? %>
-      <%= post.coment %>
-    <% end %>
-    <%= link_to "詳細", post_path(post.id) %>
-  <% end %>
+</div>

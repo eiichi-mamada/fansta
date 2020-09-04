@@ -11,5 +11,9 @@
   <p class="text-center"> 
     左のサイドバーから新規投稿時に選択したチームの一覧の写真をみることができる。
   </p>
-  
+</div>
+<div class="row row-cols-1 row-cols-md-3">
+  <% @posts.each do |post|%>
+    <%= render "posts/post_card", post: post %>
+  <% end %>
 </div>
