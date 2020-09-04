@@ -4,6 +4,7 @@
     <div class="card-body">
       <%= @post.team.name %>
       <%= @post.coment %>
+      <a href="<%= user_path(@post.user) %>"><%= @post.user.name%></a>
       <% if user_signed_in? and @post.user == current_user %>
         <%= link_to '編集', edit_post_path, class: 'btn btn-warning btn-sm' %>
         <%= link_to '削除', post_path, method: :delete, class: 'btn btn-danger btn-sm' %>
