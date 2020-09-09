@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   root to: 'toppages#index'
   resources :users, only: [:show]
   get '/user_posts/:id', to: 'users#user_posts', as: 'user_posts'
-  resources :teams, only: [:index,:create,:destroy,:show, :update]
+  resources :teams, only: [:index, :create, :destroy, :show, :update] 
+  resources :fan_teams, only:[:create, :destroy]
   resources :posts, except: [:index]
 
 end

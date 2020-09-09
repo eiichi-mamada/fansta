@@ -1,4 +1,7 @@
-<h1><%= @team.name %> posts view</h1>
+<div>
+  <h1 class="float-sm-left m-2"><%= @team.name %> posts view</h1>
+  <%= render 'fan_teams/fan_team_button', team: @team %>
+</div>
 <div class="row row-cols-1 row-cols-md-3">
   <% @team.posts.each do |post|%>
     <%= render "posts/post_card", post: post %>
