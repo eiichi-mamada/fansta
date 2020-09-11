@@ -29,8 +29,6 @@ class TeamsController < ApplicationController
   end
   
   def update
-    # @team = Team.new(team_params)
-    # binding.pry
     if @team.update(team_params)
       flash[:success] = 'アイコンを登録しました。'
       redirect_to '/teams'

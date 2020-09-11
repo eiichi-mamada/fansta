@@ -12,6 +12,8 @@
             <p><%= link_to "編集", edit_user_registration_path, class: 'btn btn-warning btn-sm float-sm-left m-3' %></p>
             <p><%= link_to "削除", user_registration_path, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm float-sm-left' %></p>
           <% end %>
+        <% else %>
+          <%= render 'relationships/follow_button', user: @user %>
         <% end %>
         <%= link_to "一覧", user_posts_path, class: 'btn btn-info btn-sm float-sm-left' %>
       </div>
