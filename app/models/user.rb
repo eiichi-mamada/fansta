@@ -5,8 +5,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :posts, dependent: :destroy
+
+  has_many :favorites
+  has_many :favorites_posts, through: :favorites, source: :post
+
   has_many :fan_teams, dependent: :destroy
   has_many :teams, through: :fan_teams
+
   mount_uploader :icon, ImageUploader
 
 end

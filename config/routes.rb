@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   resources :teams, only: [:index, :create, :destroy, :show, :update] 
   resources :fan_teams, only:[:create, :destroy]
   resources :posts, except: [:index]
+  resources :favorites, only:[:create, :destroy]
 
 end
