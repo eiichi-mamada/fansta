@@ -25,7 +25,7 @@ Team.create!(
     },
     {
       id: 8,
-      name:"ARTA NSX-GT"
+      name:"ARTA NSX"
     },
     {
       id: 12,
@@ -33,11 +33,11 @@ Team.create!(
     },
     {
       id: 14,
-      name:"WAKO'S 4CR GR Supra"
+      name:"WAKO'S 4CR Supra"
     },
     {
       id: 16,
-      name:"MOTUL MUGEN NSX-GT"
+      name:"RED BULL NSX"
     },
     {
       id: 17,
@@ -45,7 +45,7 @@ Team.create!(
     },
     {
       id: 19,
-      name:"WedsSport ADVAN GR Supra"
+      name:"WedsSport ADVAN Supra"
     },
     {
       id: 23,
@@ -57,27 +57,27 @@ Team.create!(
     },
     {
       id: 36,
-      name:"au TOM'S GR Supra"
+      name:"au TOM'S　Supra"
     },
     {
       id: 37,
-      name:"KeePer TOM's GR Supra"
+      name:"KeePer TOM's Supra"
     },
     {
       id: 38,
-      name:"ZENT CERUMO GR Supra"
+      name:"ZENT CERUMO Supra"
     },
     {
       id: 39,
-      name:"DENSO KOBELCO SARD GR Supra"
+      name:"DENSO KOBELCO SARD Supra"
     },
     {
       id: 64,
-      name:"Modulo Epson NSX-GT"
+      name:"Modulo Epson NSX"
     },
     {
       id: 100,
-      name:"RAYBRIG NSX-GT"
+      name:"RAYBRIG NSX"
     },
   ]
             )
