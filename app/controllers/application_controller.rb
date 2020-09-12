@@ -17,4 +17,9 @@ class ApplicationController < ActionController::Base
     new_user_session_path # ログアウト後に遷移するpathを設定
   end
   
+  def counts(user)
+    @count_favorites = user.favorites.count
+    @count_followings = user.followings.count
+    @count_fan_teams = user.fan_teams.count
+  end
 end

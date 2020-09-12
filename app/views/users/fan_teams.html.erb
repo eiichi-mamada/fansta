@@ -26,9 +26,11 @@
       <li class="nav-item"><a href="<%= fan_teams_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(fan_teams_user_path(@user)) %>">ファンチームの投稿  <span class="badge badge-secondary"><%= @count_fan_teams %></span></a></li>
     </ul>
     <div class="row row-cols-1 row-cols-md-3">
-      <% @user.favorites_posts.each do |post| %>
-        <%= render "posts/post_card", post: post %>
-      <% end %>
+      <% @user.teams.each do |team| %>
+        <% team.posts.each do |post| %>
+          <%= render "posts/post_card", post: post %>
+        <% end %>
+      <% end%>
     </div>
   </div>
 </div>
