@@ -1,28 +1,28 @@
 <h1 class="text-center">チーム一覧　編集</h1>
 <% team_index %>
 <% @teams.each do |team| %>
-  <div class="media bg-secondary m-4">
+  <div class="media bg-secondary m-5">
     <% if team.icon? %>
       <%= image_tag team.icon.url, :size => '100x100', class:"mr-3", alt: team.icon.url %>
     <% else %>
       <%= image_tag asset_path("no_image.png"), :size => '100x100', class:"mr-3", alt: "no_image.png" %>
     <% end %>
-    <div class="media-body">
-      <%= link_to team.name ,team_path(team.id), class:"text-white"%>
+    <div class="media-body d-flex align-items-center">
+      <h3 style="width:300px;"><%= link_to team.name ,team_path(team.id), class:"text-white"%></h3>
+      <%= render "teams/add_icon", team: team %>
+      <%= link_to "チーム削除", team, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm float-sm-left m-4' %>
     </div>
     <p class="position-absolute text-white"># <%= team.id %></p>
-    <%= render "teams/add_icon", team: team %>
-    <%= link_to "Delete", team, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm float-sm-left' %></br>
   </div>
 <% end %>
 <%= form_with(model: @team, local: true) do |f| %>
-  <div class="form-inline text-center bg-light">
-    <div class="form_group mb-2">
+  <div class="form-inline bg-light d-flex justify-content-center">
+    <div class="form_group mx-sm-3 mb-2">
       <%= f.label "number:" %>
       <%= f.text_field :id, class: "form-control" %>
     </div>
     <div class="form_group mx-sm-3 mb-2">
-      <%= f.label "team_name:" %>
+      <%= f.label "チーム名:" %>
       <%= f.text_field :name, class: "form-control" %>
     </div>
     <div class="form_group mx-sm-3 mb-2">

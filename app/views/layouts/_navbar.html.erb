@@ -1,6 +1,6 @@
 <header class="">
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">Fansta</a>
+    <a class="navbar-brand" href="/"><h2>Fansta</h2></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -9,7 +9,7 @@
       <ul class="navbar-nav">
         <% if user_signed_in? %>
           <% if current_user.admin %>
-          <li class="nav-item"><%= link_to 'Team_index', teams_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to 'チーム一覧', teams_path, class: "nav-link" %></li>
           <% end %>
           <li class="nav-item dropdown">
             <li class="nav-item"><%= link_to '新規投稿', new_post_path, class: "nav-link" %></li>

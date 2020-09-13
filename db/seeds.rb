@@ -21,7 +21,7 @@ Team.create!(
   [
     {
       id: 3,
-      name:"CRAFTSPORTS MOTUL GT-R"
+      name:"CRAFTSPORTS GT-R"
     },
     {
       id: 8,
@@ -29,51 +29,51 @@ Team.create!(
     },
     {
       id: 12,
-      name:"CALSONIC IMPUL GT-R"
+      name:"CALSONIC GT-R"
     },
     {
       id: 14,
-      name:"WAKO'S 4CR Supra"
+      name:"WAKO'S Supra"
     },
     {
       id: 16,
-      name:"RED BULL NSX"
+      name:"Red Bull NSX"
     },
     {
       id: 17,
-      name:"KEIHIN NSX-GT"
+      name:"KEIHIN NSX"
     },
     {
       id: 19,
-      name:"WedsSport ADVAN Supra"
+      name:"WedsSport Supra"
     },
     {
       id: 23,
-      name:"MOTUL AUTHECH GT-R"
+      name:"MOTUL GT-R"
     },
     {
       id: 24,
-      name:"REALIZE ADVAN GT-R"
+      name:"REALIZE GT-R"
     },
     {
       id: 36,
-      name:"au TOM'S　Supra"
+      name:"au Supra"
     },
     {
       id: 37,
-      name:"KeePer TOM's Supra"
+      name:"KeePer Supra"
     },
     {
       id: 38,
-      name:"ZENT CERUMO Supra"
+      name:"ZENT Supra"
     },
     {
       id: 39,
-      name:"DENSO KOBELCO SARD Supra"
+      name:"DENSO Supra"
     },
     {
       id: 64,
-      name:"Modulo Epson NSX"
+      name:"Modulo NSX"
     },
     {
       id: 100,
