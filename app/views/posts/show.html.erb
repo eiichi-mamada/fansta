@@ -1,14 +1,20 @@
-<h1>Post show view</h1>
-  <div class="card mb-3", style="width: 18rem;">
-    <%= image_tag display_image(@post.image.url), :size => '200x200', class:"card-img-top" %>
+<h1 class="text-center">投稿詳細ページ</h1>
+<div class="col mb-4 d-flex justify-content-center">
+  <div class="card h-100" style="width:400px;">
+    <%= image_tag display_image(@post.image.url), class:"card-img-top", :size => '400x400'  %>
     <div class="card-body">
-      <%= @post.team.name %>
-      <%= @post.coment %>
-      <a href="<%= user_path(@post.user) %>"><%= @post.user.name%></a>
-      <% if user_signed_in? and @post.user == current_user %>
-        <%= link_to '編集', edit_post_path, class: 'btn btn-warning btn-sm' %>
-        <%= link_to '削除', post_path, method: :delete, class: 'btn btn-danger btn-sm' %>
-      <% end %>
-      <%= render 'favorites/favorite_button', post: @post %>
+      <h4 class="card-text"><%= @post.team.name%></h3>
+      <p class="card-text">投稿者: <%= link_to @post.user.name, user_path(@post.user) %></p>
+      <p class="card-text">コメント: <br/><%= @post.coment%></p>
+      <p class="card-text">投稿日時: <br/><%= @post.created_at.to_s(:datetime_jp)%></p>
+      <div class="d-flex justify-content-center">
+        <%= link_to "詳細", post_path(@post.id), class:"btn btn-info btn-md m-1" %>
+        <% if user_signed_in? and @post.user == current_user %>
+          <%= link_to '編集', edit_post_path, class: 'btn btn-warning btn-md m-1' %>
+          <%= link_to '削除', post_path, method: :delete, class: 'btn btn-danger btn-md m-1' %>
+        <% end %>
+        <%= render 'favorites/favorite_button', post: @post %>
+      </div>
     </div>
   </div>
+</div>

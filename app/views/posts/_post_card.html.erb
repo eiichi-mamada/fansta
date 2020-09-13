@@ -2,10 +2,13 @@
   <div class="card h-100" style="width:300px;">
     <%= image_tag display_image(post.image.url), class:"card-img-top", :size => '300x300'  %>
     <div class="card-body">
-      <p class="card-text"><%= post.team.name%></p>
-      <p class="card-text"><%= post.coment%></p>
-      <p class="card-text"><%= post.created_at%></p>
-      <%= link_to "詳細", post_path(post.id) %>
+      <h4 class="card-text"><%= post.team.name%></h3>
+      <p class="card-text">投稿者: <%= link_to post.user.name, user_path(post.user) %></p>
+      <p class="card-text">コメント:<br/><%= post.coment%></p>
+      <p class="card-text">投稿日時:<br/><%= post.created_at.to_s(:datetime_jp)%></p>
+      <div class="d-flex justify-content-center"> 
+        <%= link_to "詳細", post_path(post.id), class:"btn btn-info btn-md" %>
+      </div>
     </div>
   </div>
 </div>

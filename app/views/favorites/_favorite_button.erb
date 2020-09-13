@@ -2,12 +2,12 @@
   <% if post.favorite?(current_user) %>
     <%= form_with(model: post.favorites.find_by(user_id: current_user.id), local: true, method: :delete) do |f| %>
       <%= hidden_field_tag :post_id, post.id %>
-      <%= f.submit 'お気に入り解除', class: 'btn btn-danger btn-sm' %>
+      <%= f.submit 'お気に入り解除', class: 'btn btn-danger btn-md m-1' %>
     <% end %>
   <% else %>
     <%= form_with(model: post.favorites.build, local: true) do |f| %>
       <%= hidden_field_tag :post_id, post.id %>
-      <%= f.submit 'お気に入り', class: 'btn btn-primary btn-sm' %>
+      <%= f.submit 'お気に入り', class: 'btn btn-primary btn-md m-1' %>
     <% end %>
   <% end %>
 <% end %>
