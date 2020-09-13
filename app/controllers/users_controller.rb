@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     counts(@user)
   end
   
-  def user_posts
+  def posts
     @user = User.find(params[:id])
   end
   

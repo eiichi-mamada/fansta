@@ -9,10 +9,10 @@ Rails.application.routes.draw do
     member do
       get :followings
       get :fan_teams
+      get :posts
     end
   end
   
-  get '/user_posts/:id', to: 'users#user_posts', as: 'user_posts'
   resources :teams, only: [:index, :create, :destroy, :show, :update] 
   resources :fan_teams, only:[:create, :destroy]
   resources :posts, except: [:index]

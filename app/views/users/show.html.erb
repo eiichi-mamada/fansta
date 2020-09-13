@@ -15,7 +15,7 @@
         <% else %>
           <%= render 'relationships/follow_button', user: @user %>
         <% end %>
-        <%= link_to "一覧", user_posts_path, class: 'btn btn-info btn-sm float-sm-left' %>
+        <%= link_to "一覧", posts_user_path, class: 'btn btn-info btn-sm float-sm-left' %>
       </div>
     </div>
   </aside>
@@ -31,10 +31,4 @@
       <% end %>
     </div>
   </div>
-</div>
-<br />
-<div class="row row-cols-1 row-cols-md-3">
-  <% @user.posts.each do |post|%>
-    <%= render "posts/post_card", post: post %>
-  <% end %>
 </div>
