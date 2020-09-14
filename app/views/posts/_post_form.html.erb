@@ -1,5 +1,5 @@
-<div class="row">
-  <div class="col-sm-4">
+<div class="row d-flex justify-content-center">
+  <div class="col-sm-5">
     <%= form_with(model: post, local: true) do |f| %>
       <div class="form-group">
         <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png', class:"form-control-file", id:"exampleFormControlFile1" %>
