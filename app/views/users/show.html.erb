@@ -21,13 +21,14 @@
   <div class="col-sm-8">
     <ul class="nav nav-tabs nav-justified mb-3">
       <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">お気に入りの投稿  <span class="badge badge-secondary"><%= @count_favorites %></span></a></li>
-      <li class="nav-item"><a href="<%= followings_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followings_user_path(@user)) %>">フォローの投稿  <span class="badge badge-secondary"><%= @count_followings %></span></a></li>
-      <li class="nav-item"><a href="<%= fan_teams_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(fan_teams_user_path(@user)) %>">ファンチームの投稿  <span class="badge badge-secondary"><%= @count_fan_teams %></span></a></li>
+      <li class="nav-item"><a href="<%= followings_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followings_user_path(@user)) %>">フォロー  <span class="badge badge-secondary"><%= @count_followings %></span></a></li>
+      <li class="nav-item"><a href="<%= fan_teams_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(fan_teams_user_path(@user)) %>">ファンチーム  <span class="badge badge-secondary"><%= @count_fan_teams %></span></a></li>
     </ul>
     <div class="row row-cols-1 row-cols-md-3">
-      <% @user.favorites_posts.each do |post| %>
+      <% @favorites.each do |post| %>
         <%= render "posts/post_card", post: post %>
       <% end %>
     </div>
+    <%= paginate @favorites %>
   </div>
 </div>

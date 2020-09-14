@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @favorites = @user.favorites.page(params[:page])
+    @favorites = @user.favorites_posts.order(id: :desc).page(params[:page]).per(2)
     counts(@user)
   end
   
@@ -12,13 +12,13 @@ class UsersController < ApplicationController
   
   def followings
     @user = User.find(params[:id])
-    @followings = @user.followings.page(params[:page])
+    @followings = @user.followings.order(id: :desc).page(params[:page]).per(5)
     counts(@user)
   end
 
   def fan_teams
     @user = User.find(params[:id])
-    @fan_teams = @user.fan_teams.page(params[:page])
+    @fan_teams = @user.teams.page(params[:page]).per(5)
     counts(@user)
   end
 
