@@ -29,7 +29,10 @@ class TeamsController < ApplicationController
   end
   
   def update
-    if @team.update(team_params)
+    if params[:team].nil?
+      flash.now[:danger] = 'アイコンの登録に失敗しました。'
+      render :index
+    elsif @team.update(team_params)
       flash[:success] = 'アイコンを登録しました。'
       redirect_to '/teams'
     else
