@@ -26,6 +26,7 @@ class TeamsController < ApplicationController
   end
   
   def show
+    @posts = @team.posts.order(id: :desc).page(params[:page]).per(6)
   end
   
   def update

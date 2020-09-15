@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   end
   
   def posts
+    @posts = @user.posts.order(id: :desc).page(params[:page]).per(6)
   end
   
   def followings

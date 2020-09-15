@@ -3,7 +3,8 @@
   <%= render 'fan_teams/fan_team_button', team: @team %>
 </div>
 <div class="row row-cols-1 row-cols-md-3">
-  <% @team.posts.each do |post|%>
+  <% @posts.each do |post|%>
     <%= render "posts/post_card", post: post %>
   <% end %>
 </div>
+<%= paginate @posts %>

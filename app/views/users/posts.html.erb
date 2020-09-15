@@ -1,6 +1,7 @@
 <h1 class="text-center"><%= @user.name %> の投稿一覧ページ</h1>
 <div class="row row-cols-1 row-cols-md-3">
-  <% @user.posts.each do |post|%>
+  <% @posts.each do |post|%>
     <%= render "posts/post_card", post: post %>
   <% end %>
 </div>
+<%= paginate @posts %>
