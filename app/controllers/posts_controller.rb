@@ -3,6 +3,8 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   
   def show
+    @message = Message.new(post_id: @post.id)
+    @messages = Message.where(post_id: @post.id).includes(:user)
   end
   
   def new

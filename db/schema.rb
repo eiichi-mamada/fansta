@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_11_091903) do
+ActiveRecord::Schema.define(version: 2020_09_16_044702) do
 
   create_table "fan_teams", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
@@ -28,6 +28,16 @@ ActiveRecord::Schema.define(version: 2020_09_11_091903) do
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_favorites_on_post_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "content", null: false
+    t.bigint "user_id"
+    t.bigint "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_messages_on_post_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -75,6 +85,8 @@ ActiveRecord::Schema.define(version: 2020_09_11_091903) do
 
   add_foreign_key "fan_teams", "teams"
   add_foreign_key "fan_teams", "users"
+  add_foreign_key "messages", "posts"
+  add_foreign_key "messages", "users"
   add_foreign_key "posts", "teams"
   add_foreign_key "posts", "users"
   add_foreign_key "relationships", "users"

@@ -15,6 +15,8 @@ class User < ApplicationRecord
   has_many :fan_teams, dependent: :destroy
   has_many :teams, through: :fan_teams
 
+  has_many :messages
+
   mount_uploader :icon, ImageUploader
 
   def follow(other_user)

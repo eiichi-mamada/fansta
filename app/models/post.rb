@@ -5,6 +5,8 @@ class Post < ApplicationRecord
   has_many :favorites
   has_many :users, through: :favorites
 
+  has_many :messages, dependent: :destroy
+
   mount_uploader :image, ImageUploader
 
   def favorite(user)
