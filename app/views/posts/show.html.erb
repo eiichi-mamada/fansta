@@ -8,7 +8,6 @@
       <p class="card-text">コメント: <br/><%= @post.coment%></p>
       <p class="card-text">投稿日時: <br/><%= @post.created_at.to_s(:datetime_jp)%></p>
       <div class="d-flex justify-content-center">
-        <%= link_to "詳細", post_path(@post.id), class:"btn btn-info btn-md m-1" %>
         <% if user_signed_in? and @post.user == current_user %>
           <%= link_to '編集', edit_post_path, class: 'btn btn-warning btn-md m-1' %>
           <%= link_to '削除', post_path, method: :delete, class: 'btn btn-danger btn-md m-1' %>
