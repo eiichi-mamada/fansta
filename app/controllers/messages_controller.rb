@@ -8,7 +8,7 @@ class MessagesController < ApplicationController
       flash.now[:danger] = 'コメントに失敗しました。'
       @post = Post.find(params[:post_id]) 
       @message = Message.new(post_id: @post.id)
-      @messages = Message.where(post_id: @post.id)
+      @messages = Message.where(post_id: @post.id).includes(:user).order(id: :desc)
       render "posts/show"
     end
   end

@@ -16,18 +16,25 @@
       </div>
     </div>
   </div>
-  <div class="bg-light ml-5" style="width:300px;">
+  <div class="bg-light ml-5" style="width:350px;">
+    <h2 class="text-center border border-dark">コメント欄</h2>
     <% @messages.each do |message|%>
-      <p>
-        <%= message.content %> 
-        <% if message.user == current_user %>
-          <%= link_to "コメント削除", post_message_path(@post,message), method: :delete, class: 'btn btn-danger btn-sm m-1' %>
-        <% end %>
-      </p>
+      <div class="border border-white">
+        <p class="m-1 text-wrap text-truncate" style="max-width: 350px;"><%= message.content %></p>
+        <p class="m-1">日時: <%= message.created_at.to_s(:datetime_jp)%></p>
+        <div class="d-flex justify-content-between">
+          <p class="m-1">ユーザー: <%= message.user.name %></p>
+          <p class="m-1">
+            <% if message.user == current_user %>
+              <%= link_to "コメント削除", post_message_path(@post,message), method: :delete, class: 'btn btn-danger btn-sm' %>
+            <% end %>
+          </p>
+        </div>
+      </div>
     <% end %>
     <% if user_signed_in? %>
       <%= form_with(model:[@post,@message], local: true) do |f| %>
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-between">
           <div class="form-group m-1">
             <%= f.text_area :content, class: 'form-control', rows:1 %>
           </div>

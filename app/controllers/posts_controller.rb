@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   
   def show
     @message = Message.new(post_id: @post.id)
-    @messages = Message.where(post_id: @post.id).includes(:user)
+    @messages = Message.where(post_id: @post.id).includes(:user).order(id: :desc)
   end
   
   def new
