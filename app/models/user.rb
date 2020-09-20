@@ -6,16 +6,17 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
 
-  has_many :relationships
+  has_many :relationships, dependent: :destroy
   has_many :followings, through: :relationships, source: :follow
+  has_many :reverses_of_relationship, class_name: 'Relationship', foreign_key: 'follow_id', dependent: :destroy
 
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   has_many :favorites_posts, through: :favorites, source: :post
 
   has_many :fan_teams, dependent: :destroy
   has_many :teams, through: :fan_teams
 
-  has_many :messages
+  has_many :messages, dependent: :destroy
 
   mount_uploader :icon, ImageUploader
 

@@ -18,7 +18,7 @@ class PostsController < ApplicationController
       redirect_to action: :show, id: @post.id
     else
       flash.now[:danger] = '投稿に失敗しました。'
-      render 'toppages/index'
+      render 'posts/new'
     end
   end
   
