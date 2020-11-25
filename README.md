@@ -28,4 +28,5 @@ https://fansta-heroku.herokuapp.com/
 - お気に入りの投稿一覧
 ## 今後実装予定
 本番環境をAWS（EC2）に移行
+Webサーバーにnginxを導入
 postgresqlからMYSQLに変更
