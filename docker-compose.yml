@@ -21,6 +21,17 @@ services:
     volumes:
       - .:/workdir # ソースコード変更したらDocker側も即反映されるように
       - gem_data:/usr/local/bundle
+  nginx:
+    build: containers/nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./public:/app/public
+      - ./tmp:/app/tmp
+    depends_on: 
+      - web
 volumes:
   gem_data:
   mysql-data:
+  public:
+  tmp:
