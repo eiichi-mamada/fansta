@@ -13,7 +13,7 @@ RSpec.describe Message, type: :model do
     
   describe 'バリデーションテスト' do
     it "contentが空だと登録できないこと" do
-      message = build(:message, content:"a"*101)
+      message = build(:message, content:"")
       expect(message.valid?).to eq false
     end
 
