@@ -61,6 +61,6 @@ gem 'carrierwave'
 gem 'mini_magick', '~> 4.8'
 gem 'fog-aws'
 
-# group :production do
-#   gem 'pg', '>= 0.18', '< 2.0'
-# end
+group :production do
+  gem 'unicorn', '5.4.1'
+end
