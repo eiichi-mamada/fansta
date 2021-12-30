@@ -11,7 +11,7 @@ unless Rails.env.development? || Rails.env.test?
       region: 'ap-northeast-1',
       path_style: true
     }
-    config.storage = :fog
+    config.storage :fog
     config.fog_provider = 'fog/aws'
     config.fog_directory  = 'fansta-s3-bucket'
   end
