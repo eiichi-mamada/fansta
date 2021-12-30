@@ -88,8 +88,4 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-
-  config.logger = Logger::Syslog.new
-  config.logger = Logger::Syslog.new('appname', Syslog::LOG_LOCAL7)
-  
 end
