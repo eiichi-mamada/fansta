@@ -1,3 +1,7 @@
+require 'carrierwave/storage/abstract'
+require 'carrierwave/storage/file'
+require 'carrierwave/storage/fog'
+
 unless Rails.env.development? || Rails.env.test?
   CarrierWave.configure do |config|
     config.fog_credentials = {
@@ -7,9 +11,8 @@ unless Rails.env.development? || Rails.env.test?
       region: 'ap-northeast-1',
       path_style: true
     }
-
-    config.fog_directory  = 'fansta-s3-bucket'
     config.storage :fog
     config.fog_provider = 'fog/aws'
+    config.fog_directory  = 'fansta-s3-bucket'
   end
 end
