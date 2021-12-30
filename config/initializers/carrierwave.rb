@@ -4,10 +4,12 @@ unless Rails.env.development? || Rails.env.test?
       provider: 'AWS',
       aws_access_key_id: Rails.application.credentials.aws[:access_key_id],
       aws_secret_access_key: Rails.application.credentials.aws[:secret_access_key],
-      region: 'ap-northeast-1'
+      region: 'ap-northeast-1',
+      path_style: true
     }
 
     config.fog_directory  = 'fansta-s3-bucket'
-    config.cache_storage = :fog
+    config.storage :fog
+    config.fog_provider = 'fog/aws'
   end
 end
